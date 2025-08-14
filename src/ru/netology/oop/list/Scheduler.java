@@ -44,7 +44,7 @@ public class Scheduler {
         while (iterator.hasNext()) {
             if (iterator.next().equals(task)) {
                 iterator.remove();
-                isRemoved =true;
+                isRemoved = true;
             }
         }
         if (!isRemoved) {
