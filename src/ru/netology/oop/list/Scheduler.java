@@ -30,18 +30,29 @@ public class Scheduler {
     }
 
     public void deleteTaskByNumber(int taskNumber) {
-        toDoList.remove(taskNumber - 1);
-        System.out.println("Удалено!");
+        if (taskNumber < 1 || taskNumber > toDoList.size()) {
+            System.out.println("Дела с таким номером не существует");
+        } else {
+            toDoList.remove(taskNumber - 1);
+            System.out.println("Удалено!");
+        }
     }
 
     public void deleteTaskByText(String task) {
         Iterator<String> iterator = toDoList.iterator();
+        boolean isRemoved = false;
         while (iterator.hasNext()) {
             if (iterator.next().equals(task)) {
                 iterator.remove();
+                isRemoved =true;
             }
         }
-        System.out.println("Удалено!");
+        if (!isRemoved) {
+            System.out.println("Дела с таким названием нет");
+        } else {
+            System.out.println("Удалено!");
+        }
+
     }
 
 //    public void deleteTasksList(String word) {
